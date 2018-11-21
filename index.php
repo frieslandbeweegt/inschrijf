@@ -6,8 +6,6 @@ include( 'server.php' );
 <!DOCTYPE html>
 <html>
 <head>
-
-
 	<meta charset="utf-8">
 	<title>Inschrijf</title>
 	<!-- Bootstrap core CSS -->
@@ -24,222 +22,97 @@ include( 'server.php' );
 
 <body>
 
-	<div class="container">
-		<form name="save" method="post" action="index.php">
+	<div class="wrapper">
+		<div class="container">
 			<div class="text-center">
-				<input name="title" type="text" class="form-control" id="title" aria-describedby="title" placeholder="Title">
+				<h1>Inschrijven evenement(en)</h1>
+			</div>
+			<h2>Kies evenement</h2>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+				<label class="form-check-label" for="defaultCheck1">
+   					 Fjoertoer arrangement (5 t/m 7 april 2019) - Nog 8 van 110 beschikbaar
+  				</label>
 			</div>
 
-			<h3 class="evenement">Evenementen</h3>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+				<label class="form-check-label" for="defaultCheck2">
+   					 Natuurweek (28 april t/m 5 mei 2019) - Nog 2 van 18 beschikbaar
+  				</label>
+			</div>
 
-			<div class="row">
-				<div class="col-md-11">
-					<div class="main-event">
-						<div class="evenementen">
-							<div class="row" style="margin-bottom: 10px;">
-								<div class="col-md-2">
-									<div class="btn btn-danger minEvent">
-										<i class="fas fa-minus"></i>
-									</div>
-								</div>
-								<div class="col-md-10">
-									<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="evenement" name="evenement" placeholder="Evenement">
-								</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+				<label class="form-check-label" for="defaultCheck3">
+   					 Wandel-/fietsweek Haven (26 juli t/m 1/2 augustus 2019) - Nog 187 van 235 beschikbaar
+  				</label>
+			</div>
 
-								<div class="col-md-6">
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+				<label class="form-check-label" for="defaultCheck4">
+   					 Strand / Vuurtoren wandelweek (2 t/m 8 augustus 2019) - Nog 24 van 69 beschikbaar
+  				</label>
+			</div>
 
-									<div class="form-check">
-										<input class="form-check-input inlineCheckbox1" type="checkbox" id="" value="option1" onClick="showInput()">
-										<label class="form-check-label" for="inlineCheckbox1">Extra mensen</label>
-										<input type="number" class="form-control max_extra" placeholder="max extra deelnemers" style="display: none;">
-									</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+				<label class="form-check-label" for="defaultCheck5">
+					Combinatie Haven+Strand wandelweken (26 juli t/m 8 augustus 2019)
+  				</label>
+			</div>
 
-
-									<div class="form-check">
-										<input class="form-check-input inlineCheckbox2" type="checkbox" value="option2" onClick="showInput2();">
-										<label class="form-check-label" for="inlineCheckbox2">Vervoer</label>
-
-										<div class="vervoer_zelf" style="display: none;">
-											<div class="row">
-												<div class="col-md-10 columnVervoer">
-													<div class="box">
-														<div class="row">
-															<div class="col-md-2">
-																<div class="btn minVervoer">
-																	<i class="fas fa-minus"></i>
-																</div>
-															</div>
-															<div class="col-md-6">
-																<input type="text" class="form-control" placeholder="Vervoer zelf">
-															</div>
-															<div class="col-md-4 input-group">
-																<div class="input-group-prepend">
-																	<span class="input-group-text" id="basic-addon1">€</span>
-																</div>
-																<input type="text" class="form-control" placeholder="costs">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-2">
-													<div class="btn addVervoer">
-														<i class="fas fa-plus"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option2">
-										<label class="form-check-label" for="inlineCheckbox3">Vegetarich</label>
-									</div>
-
-
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2" onClick="showInput3();">
-										<label class="form-check-label" for="inlineCheckbox4">Edities</label>
-
-										<div id="editie" style="display: none;">
-											<div class="row">
-												<div class="col-md-10 columnEditie">
-													<div>
-														<div class="row">
-															<div class="col-md-2">
-																<div class="btn minEditie">
-																	<i class="fas fa-minus"></i>
-																</div>
-															</div>
-															<div class="col-md-6">
-																<input type="text" class="form-control" placeholder="Editie">
-															</div>
-															<div class="col-md-4 input-group">
-																<div class="input-group-prepend">
-																	<span class="input-group-text" id="basic-addon2">€</span>
-																</div>
-																<input type="text" class="form-control" placeholder="costs">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-2">
-													<div class="btn addEditie">
-														<i class="fas fa-plus"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option1" onClick="showInput4();">
-										<label class="form-check-label" for="inlineCheckbox5">Accomodatie</label>
-
-										<div id="accomodatie" style="display: none;">
-											<div class="row">
-												<div class="col-md-10 columnAccomodatie">
-													<div>
-														<div class="row">
-															<div class="col-md-2">
-																<div class="btn minAccomodatie">
-																	<i class="fas fa-minus"></i>
-																</div>
-															</div>
-															<div class="col-md-6">
-																<input type="text" class="form-control" placeholder="Accomodatie">
-															</div>
-															<div class="col-md-4 input-group">
-																<div class="input-group-prepend">
-																	<span class="input-group-text" id="basic-addon3">€</span>
-																</div>
-																<input type="text" class="form-control" placeholder="costs">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-2">
-													<div class="btn addAccomodatie">
-														<i class="fas fa-plus"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option2">
-										<label class="form-check-label" for="inlineCheckbox6">Annuleringsverzekering</label>
-									</div>
-
-
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option2" onClick="showInput5();">
-										<label class="form-check-label" for="inlineCheckbox7">Verhuur</label>
-										
-										<div id="verhuur" style="display: none;">
-											<div class="row">
-												<div class="col-md-10 columnVerhuur">
-													<div>
-														<div class="row">
-															<div class="col-md-2">
-																<div class="btn minVerhuur">
-																	<i class="fas fa-minus"></i>
-																</div>
-															</div>
-															<div class="col-md-6">
-																<input type="text" class="form-control" placeholder="Verhuur">
-															</div>
-															<div class="col-md-4 input-group">
-																<div class="input-group-prepend">
-																	<span class="input-group-text" id="basic-addon3">€</span>
-																</div>
-																<input type="text" class="form-control" placeholder="costs">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-2">
-													<div class="btn addVerhuur">
-														<i class="fas fa-plus"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-										
-										
-									</div>
-								</div>
-								<div class="col-md-4">
-									<h6>Extra</h6>
-									<input type="text" class="form-control" id="Prijs" aria-describedby="prijs" placeholder="Prijs">
-									<input type="number" class="form-control" id="max_deelname" placeholder="Max deelname" style="margin-top: 10px;">
-								</div>
-							</div>
+			<form action="index.php">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" class="form-control" id="name" placeholder="Naam" required>
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" class="form-control" id="email" placeholder="Email" required>
+				</div>
+				<div class="row">
+					<div class="col-8">
+						<div class="form-group">
+							<label for="straat">Straat</label>
+							<input type="text" class="form-control" id="straat" placeholder="Straat" required>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="form-group">
+							<label for="huisnummer">Huisnummer</label>
+							<input type="text" class="form-control" id="huisnummer" placeholder="Huisnummer" required>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-1">
-					<div class="btn btn-primary addEvent">
-						<i class="fas fa-plus"></i>
+
+				<div class="row">
+					<div class="col-4">
+						<div class="form-group">
+							<label for="postcode">Postcode</label>
+							<input type="text" class="form-control" id="postcode" placeholder="Postcode" required>
+						</div>
+					</div>
+					<div class="col-8">
+						<div class="form-group">
+							<label for="Woonplaats">Woonplaats</label>
+							<input type="text" class="form-control" id="Woonplaats" placeholder="Woonplaats" required>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="text-center">
-				<button name="save" class="btn btn-success saveBtn">Save</button>
-			</div>
-		</form>
+				<div class="text-center">
+					<button class="btn btn-primary" type="submit">Aanmelden</button>
+				</div>
+			</form>
+		</div>
 	</div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/functions.js"></script>
-	<script src="js/cms.js"></script>
+	<script src="js/index.js"></script>
+
 </body>
 </html>

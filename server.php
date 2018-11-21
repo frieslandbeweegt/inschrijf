@@ -1,15 +1,25 @@
 <?php
 
+require_once 'connect_db.php';
+
 session_start();
 
 
 //save cms
 
-if (isset($_POST['save'])) {
-    $title = mysqli_real_escape_string($db, $_POST['title']);
-    $evenement = mysqli_real_escape_string($db, $_POST['evenement']);
+if ( isset( $_POST[ 'save' ] ) ) {
+	var_dump($_POST);
 
-    $sql = "INSERT INTO cms (title, evenement)
-                VALUES ('$title', '$evenement')";
-    mysqli_query($conn, $sql);
-};
+	$evenement = mysqli_real_escape_string($conn, $_POST['evenement']);
+	for($i = 0; $i < count($_POST['evenement']); $i++) {
+
+
+	$sql = "INSERT INTO evenementen (evenement) VALUES ('$evenement')";
+
+	if ($conn->query($sql) === TRUE) {
+		echo "New record created successfully";
+	} else {
+		echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+}
+}
