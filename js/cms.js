@@ -1,9 +1,13 @@
 var countVervoer = 1;
 var count = 1;
+var countInput = 1;
+var countAccomodatie = 1;
+var countVerhuur = 1;
 $(".addEvent").click(function () {
 	
+
 	count++
-	var rowEvent = '							<div class="row columnEvent'+count+'" style="margin-bottom: 10px;">\
+	var rowEvent = '							<div class="row columnEvent' + count + '" style="margin-bottom: 10px;">\
 								<div class="col-md-2">\
 									<div class="btn btn-danger minEvent">\
 										<i class="fas fa-minus"></i>\
@@ -56,9 +60,9 @@ $(".addEvent").click(function () {
 										<label class="form-check-label" for="inlineCheckbox3">Vegetarich</label>\
 									</div>\
 									<div class="form-check">\
-										<input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2" onClick="showInput3();">\
+										<input class="form-check-input inlineCheckbox4" type="checkbox" value="option2" onClick="showInput3();">\
 										<label class="form-check-label" for="inlineCheckbox4">Edities</label>\
-										<div id="editie" style="display: none;">\
+										<div class="editie" style="display: none;">\
 											<div class="row">\
 												<div class="col-md-10 columnEditie">\
 													<div>\
@@ -81,7 +85,7 @@ $(".addEvent").click(function () {
 													</div>\
 												</div>\
 												<div class="col-md-2">\
-													<div class="btn addEditie">\
+													<div class="btn addEditie" onClick="showInputEditie();">\
 														<i class="fas fa-plus"></i>\
 													</div>\
 												</div>\
@@ -91,9 +95,9 @@ $(".addEvent").click(function () {
 								</div>\
 								<div class="col-md-6">\
 									<div class="form-check">\
-										<input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option1" onClick="showInput4();">\
+										<input class="form-check-input inlineCheckbox5" type="checkbox" value="option1" onClick="showInput4();">\
 										<label class="form-check-label" for="inlineCheckbox5">Accomodatie</label>\
-										<div id="accomodatie" style="display: none;">\
+										<div class="accomodatie" style="display: none;">\
 											<div class="row">\
 												<div class="col-md-10 columnAccomodatie">\
 													<div>\
@@ -116,7 +120,7 @@ $(".addEvent").click(function () {
 													</div>\
 												</div>\
 												<div class="col-md-2">\
-													<div class="btn addAccomodatie">\
+													<div class="btn addAccomodatie" onClick="showInputAccomodatie();">\
 														<i class="fas fa-plus"></i>\
 													</div>\
 												</div>\
@@ -128,9 +132,9 @@ $(".addEvent").click(function () {
 										<label class="form-check-label" for="inlineCheckbox6">Annuleringsverzekering</label>\
 									</div>\
 									<div class="form-check">\
-										<input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option2" onClick="showInput5();">\
+										<input class="form-check-input inlineCheckbox7" type="checkbox" value="option2" onClick="showInput5();">\
 										<label class="form-check-label" for="inlineCheckbox7">Verhuur</label>\
-										<div id="verhuur" style="display: none;">\
+										<div class="verhuur" style="display: none;">\
 											<div class="row">\
 												<div class="col-md-10 columnVerhuur">\
 													<div>\
@@ -153,7 +157,7 @@ $(".addEvent").click(function () {
 													</div>\
 												</div>\
 												<div class="col-md-2">\
-													<div class="btn addVerhuur">\
+													<div class="btn addVerhuur" onClick="showInputVerhuur();">\
 														<i class="fas fa-plus"></i>\
 													</div>\
 												</div>\
@@ -182,11 +186,11 @@ $(document).on('click', '.minEvent', function (e) {
 
 //zelf vervoer in cms
 
-$(document).on('click',".addVervoer", function (e) {
-	var test = document.getElementsByClassName("columnVervoer");
-	
+$(document).on('click', ".addVervoer", function (e) {
+
 	countVervoer++
-	var vervoerAppend = '<div class="box'+countVervoer+'" style="margin-top: 10px;">\
+
+	var vervoerAppend = '<div class="box' + countVervoer + '" style="margin-top: 10px;">\
 														<div class="row">\
 															<div class="col-md-2">\
 																<div class="btn minVervoer">\
@@ -203,13 +207,9 @@ $(document).on('click',".addVervoer", function (e) {
 																<input type="text" class="form-control" placeholder="costs">\
 															</div>\
 														</div>';
-	for (var j = 0; j < test.length; j++) {
-	$(".columnVervoer").append(vervoerAppend[j]);
 
-
-
-};
-	});	
+	$(".columnVervoer").append(vervoerAppend);
+});
 
 $(document).on('click', '.minVervoer', function (e) {
 	if ($(".minVervoer").length > 1) {
@@ -220,7 +220,10 @@ $(document).on('click', '.minVervoer', function (e) {
 //extra input editie cms
 
 $(".addEditie").click(function () {
-	$(".columnEditie").append('<div class="box" style="margin-top: 10px;">\
+	
+	countInput++
+	
+	var inputAppend = '<div class="box' + countInput + '" style="margin-top: 10px;">\
 														<div class="row">\
 															<div class="col-md-2">\
 																<div class="btn minEditie">\
@@ -236,7 +239,9 @@ $(".addEditie").click(function () {
 																</div>\
 																<input type="text" class="form-control" placeholder="costs">\
 															</div>\
-														</div>');
+														</div>';
+	
+	$(".columnEditie").append(inputAppend);
 });
 
 $(document).on('click', '.minEditie', function (e) {
@@ -248,7 +253,10 @@ $(document).on('click', '.minEditie', function (e) {
 //accomodatie inputs cms
 
 $(".addAccomodatie").click(function () {
-	$(".columnAccomodatie").append('<div class="box" style="margin-top: 10px;">\
+	
+	countAccomodatie ++
+	
+	$(".columnAccomodatie").append('<div class="box' + countAccomodatie + '" style="margin-top: 10px;">\
 														<div class="row">\
 															<div class="col-md-2">\
 																<div class="btn minAccomodatie">\
@@ -279,7 +287,9 @@ $(document).on('click', '.minAccomodatie', function (e) {
 //verhuur inputs cms
 
 $(".addVerhuur").click(function () {
-	$(".columnVerhuur").append('<div class="box" style="margin-top: 10px;">\
+	
+	countVerhuur ++
+	$(".columnVerhuur").append('<div class="box' + countVerhuur + '" style="margin-top: 10px;">\
 														<div class="row">\
 															<div class="col-md-2">\
 																<div class="btn minVerhuur">\
