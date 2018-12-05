@@ -22,97 +22,56 @@ include( 'server.php' );
 
 <body>
 
-	<div class="wrapper">
-		<div class="container">
-			<div class="text-center">
-				<h1>Inschrijven evenement(en)</h1>
-			</div>
-			<h2>Kies evenement</h2>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-				<label class="form-check-label" for="defaultCheck1">
-   					 Fjoertoer arrangement (5 t/m 7 april 2019) - Nog 8 van 110 beschikbaar
-  				</label>
-			</div>
-
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-				<label class="form-check-label" for="defaultCheck2">
-   					 Natuurweek (28 april t/m 5 mei 2019) - Nog 2 van 18 beschikbaar
-  				</label>
-			</div>
-
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-				<label class="form-check-label" for="defaultCheck3">
-   					 Wandel-/fietsweek Haven (26 juli t/m 1/2 augustus 2019) - Nog 187 van 235 beschikbaar
-  				</label>
-			</div>
-
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-				<label class="form-check-label" for="defaultCheck4">
-   					 Strand / Vuurtoren wandelweek (2 t/m 8 augustus 2019) - Nog 24 van 69 beschikbaar
-  				</label>
-			</div>
-
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
-				<label class="form-check-label" for="defaultCheck5">
-					Combinatie Haven+Strand wandelweken (26 juli t/m 8 augustus 2019)
-  				</label>
-			</div>
-
-			<form action="index.php">
-				<div class="form-group">
-					<label for="name">Name</label>
-					<input type="text" class="form-control" id="name" placeholder="Naam" required>
+	<div class="container">
+		<h1>Evenementen</h1>
+			<div class="row">
+				<div class="col-md-2">
+					<strong>ID</strong>
 				</div>
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" class="form-control" id="email" placeholder="Email" required>
+				<div class="col-md-6">
+					<strong>Evenement</strong>
 				</div>
-				<div class="row">
-					<div class="col-8">
-						<div class="form-group">
-							<label for="straat">Straat</label>
-							<input type="text" class="form-control" id="straat" placeholder="Straat" required>
+				<div class="col-md-4 text-right">
+					<strong>Verwijderen</strong>
+				</div>
+			</div>
+		
+		<?php
+
+                $sql = "SELECT * FROM evenementen";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo "
+						<div class='row' style='margin-bottom: 10px;'>
+							<div class='col-md-2'>
+								" . $row["id"] . "
+							</div>
+							<div class='col-md-6'>
+								" . $row["evenement"] . "
+							</div>
+							<div class='col-md-4'>
+								<form action='server.php' method='get'>
+									<div class='text-right'>
+										<button id='" . $row["id"] . "' type='submit' name='delete' class='btn btn-danger' value='" . $row["id"] . "'><i class='fas fa-trash'></i></button>
+									</div>
+								</form>
+							</div>
 						</div>
-					</div>
-					<div class="col-4">
-						<div class="form-group">
-							<label for="huisnummer">Huisnummer</label>
-							<input type="text" class="form-control" id="huisnummer" placeholder="Huisnummer" required>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-4">
-						<div class="form-group">
-							<label for="postcode">Postcode</label>
-							<input type="text" class="form-control" id="postcode" placeholder="Postcode" required>
-						</div>
-					</div>
-					<div class="col-8">
-						<div class="form-group">
-							<label for="Woonplaats">Woonplaats</label>
-							<input type="text" class="form-control" id="Woonplaats" placeholder="Woonplaats" required>
-						</div>
-					</div>
-				</div>
-
-				<div class="text-center">
-					<button class="btn btn-primary" type="submit">Aanmelden</button>
-				</div>
-			</form>
-		</div>
+					";
+					}
+				}
+				?>
 	</div>
 
-	<!-- Bootstrap core JavaScript -->
+
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/index.js"></script>
+
+
 
 </body>
 </html>

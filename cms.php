@@ -69,7 +69,7 @@ include( 'server.php' );
 																</div>
 															</div>
 															<div class="col-md-6">
-																<input type="text" class="form-control" placeholder="Vervoer zelf" name="vervoer">
+																<input type="text" class="form-control vervoer" placeholder="Vervoer zelf" name="vervoer" id="vervoer">
 															</div>
 															<div class="col-md-4 input-group">
 																<div class="input-group-prepend">
@@ -91,7 +91,7 @@ include( 'server.php' );
 
 									<div class="form-check">
 										<input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="check3" value="Vegetarisch">
-										<label class="form-check-label" for="inlineCheckbox3">Vegetarich</label>
+										<label class="form-check-label" for="inlineCheckbox3">Vegetarisch</label>
 									</div>
 
 									<div class="form-check">
@@ -217,7 +217,7 @@ include( 'server.php' );
 			</div>
 
 			<div class="text-center">
-				<button name="save" class="btn btn-success saveBtn" type="submit">Save</button>
+				<button id="saveCms" name="saveCms" class="btn btn-success saveBtn" type="submit">Save</button>
 			</div>
 		</form>
 	</div> <!--end container-->
