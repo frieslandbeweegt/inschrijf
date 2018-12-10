@@ -33,8 +33,12 @@ include('server.php');
                 <h4>Kies evenement</h4>
                 <?php
 
-                $sql = "SELECT * FROM evenementen";
+                $sql = "SELECT * 
+                FROM evenementen
+                INNER JOIN vervoer ON evenementen.id = vervoer.evenement_id";
                 $result = $conn->query($sql);
+
+  
 
                 if ($result->num_rows > 0) {
                     // output data of each row
@@ -45,14 +49,12 @@ include('server.php');
             <label class='form-check-label' for='defaultCheck1'>
                 " . $row["evenement"] . "  " . $row["datum_begin"] . " / " . $row["datum_eind"] . "
             </label>
-            <div class='extraInschrijf' value='" . $row["extra_inschrijven"] . "' style='display: none'>
-                <h6>Voor hoeveel mensen wilt u inschrijven?</h6>
-               
+            <div class='extraInschrijf'>
+            " . $row["type"] . "
             </div>  
         </div>
 ";
-
-                    }
+}
                 } else {
                     echo "0 results";
                 }

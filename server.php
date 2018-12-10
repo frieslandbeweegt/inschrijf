@@ -55,9 +55,17 @@ if ( isset( $_POST[ 'saveCms' ] ) ) {
 
 	if ( $conn->query( $sql ) === TRUE ) {
 		$lastId = $conn->insert_id;
-		$sql2 = "INSERT INTO vervoer (evenement_id, type, kosten) VALUES ('$lastId', '$vervoer', '$vervoer_costs')";
-		$conn->query( $sql2 );
-		$sql3 = "INSERT INTO editie (evenement_id, type, kosten) VALUES ('$lastId', '$editie', '$editie_costs')";	
+		$vervoer = $_POST['vervoer'];
+		$vervoer_costs = $_POST['vervoer_costs'];
+
+        foreach ($vervoer as $index => $item) {
+            $sql2 = "INSERT INTO vervoer (evenement_id, type, kosten) VALUES ('$lastId', '$item', '$vervoer_costs[$index]')";
+            $conn->query( $sql2 );
+		}
+
+
+
+		$sql3 = "INSERT INTO editie (evenement_id, type, kosten) VALUES ('$lastId', '$editie', '$editie_costs')";
 		$conn->query( $sql3 );
 		$sql4 = "INSERT INTO accomodatie (evenement_id, type, kosten) VALUES ('$lastId', '$accomodatie', '$accomodatie_costs')";
 		$conn->query( $sql4 );
@@ -67,7 +75,7 @@ if ( isset( $_POST[ 'saveCms' ] ) ) {
 		header( 'Location: inschrijven.php' );
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
-	}
+	};
 }
 
 //delete evenement

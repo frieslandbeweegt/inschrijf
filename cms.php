@@ -69,13 +69,13 @@ include( 'server.php' );
 																</div>
 															</div>
 															<div class="col-md-6">
-																<input type="text" class="form-control vervoer" placeholder="Vervoer zelf" name="vervoer" id="vervoer">
+																<input type="text" class="form-control vervoer" placeholder="Vervoer zelf" name="vervoer[]" id="vervoer">
 															</div>
 															<div class="col-md-4 input-group">
 																<div class="input-group-prepend">
 																	<span class="input-group-text" id="basic-addon1">€</span>
 																</div>
-																<input type="text" class="form-control" placeholder="costs" name="vervoer_costs">
+																<input type="text" class="form-control" placeholder="costs" name="vervoer_costs[]">
 															</div>
 														</div>
 													</div>
